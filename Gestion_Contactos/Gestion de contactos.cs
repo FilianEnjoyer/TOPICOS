@@ -107,6 +107,6 @@ namespace Gestion_Contactos
             {
                 e.KeyChar = (char)0;
             }
-        }
+        } //test
     }
 }
