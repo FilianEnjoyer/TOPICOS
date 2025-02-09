@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35514.174
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Basica", "GUI_Basica\GUI_Basica.csproj", "{412626C6-CE10-405A-BD29-051FF4B0605C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Dinamica", "GUI_Dinamica\GUI_Dinamica.csproj", "{FD3620AF-8C16-4AD1-A279-D21410548C61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gestion_Contactos", "Gestion_Contactos\Gestion_Contactos.csproj", "{FC75E210-B716-49F6-B646-F7DB3A1AF51F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{412626C6-CE10-405A-BD29-051FF4B0605C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{412626C6-CE10-405A-BD29-051FF4B0605C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{412626C6-CE10-405A-BD29-051FF4B0605C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{412626C6-CE10-405A-BD29-051FF4B0605C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD3620AF-8C16-4AD1-A279-D21410548C61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD3620AF-8C16-4AD1-A279-D21410548C61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD3620AF-8C16-4AD1-A279-D21410548C61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD3620AF-8C16-4AD1-A279-D21410548C61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC75E210-B716-49F6-B646-F7DB3A1AF51F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC75E210-B716-49F6-B646-F7DB3A1AF51F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC75E210-B716-49F6-B646-F7DB3A1AF51F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC75E210-B716-49F6-B646-F7DB3A1AF51F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
