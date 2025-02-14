@@ -31,7 +31,7 @@ namespace Gestion_Contactos
             //Verefica que los 3 campos esten llenos
             if (string.IsNullOrEmpty(txtCorreo.Text) || string.IsNullOrEmpty(txtNombre.Text) || string.IsNullOrEmpty(txtNumero.Text))
             {
-                MessageBox.Show("Por favor, ingresa los 3 campos: Nombre, Correo y Teléfono", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, ingresa los 3 campos: Nombre, Correo y Numero", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //Añade el contacto a la lista
