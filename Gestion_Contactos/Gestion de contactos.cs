@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaTopicosV1;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,7 @@ namespace Gestion_Contactos
             //Eventos keypress de las textbox
             txtNombre.KeyPress += KeyPressNombre;
             txtNumero.KeyPress += KeyPressNumero;
+            ValidacionInPut validacionInPut = new ValidacionInPut();
         }
 
         // Evento del botón "Añadir Contacto"
@@ -96,6 +98,7 @@ namespace Gestion_Contactos
             {
                 e.KeyChar = (char)0;
             }
+
         }
         //Hace que el textbox para numeros solo acepte numeros
         private void KeyPressNumero(object sender, KeyPressEventArgs e)
@@ -108,5 +111,10 @@ namespace Gestion_Contactos
                 e.KeyChar = (char)0;
             }
         } //test
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

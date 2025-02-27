@@ -87,6 +87,7 @@
             this.txtNombre.Size = new System.Drawing.Size(219, 20);
             this.txtNombre.TabIndex = 3;
             this.txtNombre.DockChanged += new System.EventHandler(this.Form1_Load);
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // label1
             // 
