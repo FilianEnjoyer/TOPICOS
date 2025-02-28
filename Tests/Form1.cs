@@ -17,7 +17,7 @@ namespace Tests
         {
             InitializeComponent();
         }
-
+        ValidarRFC validarRFC = new ValidarRFC();
 
         private void CajaTexto_TextChanged(object sender, EventArgs e)
         {
@@ -45,5 +45,28 @@ namespace Tests
                 MessageBox.Show("No contiene solo letras");
             }
         }
+
+        private void bt_ValidarRFC_Click(object sender, EventArgs e)
+        {
+            
+            bool validar = validarRFC.EsRFCValido(txtRFC.Text);
+            if (validar == true)
+            {
+                MessageBox.Show("RFC Correcto");
+                txtRFC.Text = validarRFC.CorregirRFC(txtRFC.Text);
+            }
+            else
+            {
+                MessageBox.Show("RFC Incorrecto debe tener el formato: AAAA######XXX");
+                txtRFC.Clear();
+            }
+        }
+
+        private void CorregirRFC(object sender, KeyPressEventArgs e)
+        {
+
+            
+        }
+
     }
 }
