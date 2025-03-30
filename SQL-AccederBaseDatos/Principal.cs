@@ -15,10 +15,13 @@ namespace SQL_AccederBaseDatos
 {
     public partial class Principal : Form
     {
+        // Constructor de la clase Principal
         public Principal()
         {
             InitializeComponent();
         }
+
+        // Instancias de las clases necesarias para ejecutar comandos y crear bases de datos
         EjecutarCmd cmd = new EjecutarCmd();
         MySQLEjecutarCmd MySqlCmd = new MySQLEjecutarCmd();
         CrearDB CrearDB = new CrearDB();
@@ -26,6 +29,8 @@ namespace SQL_AccederBaseDatos
         LlenarGrid Llenar = new LlenarGrid();
         MySQLLenarGrid MySQLLlenar = new MySQLLenarGrid();
         MostrarTabla MostrarTabla = new MostrarTabla();
+
+        // Evento para el botón de crear base de datos
         private void btCrearDB_Click(object sender, EventArgs e)
         {
             if (chkSQLServer.Checked)
@@ -36,12 +41,15 @@ namespace SQL_AccederBaseDatos
             {
                 MySQLCrearDB.CrearBase("ESCOLAR");
             }
-
         }
+
+        // Variables para manejar datasets y comandos SQL
         DataSet ds = new DataSet();
         SqlCommand comando = new SqlCommand();
         DataSet MySQLds = new DataSet();
         MySqlCommand MySQLcomando = new MySqlCommand();
+
+        // Método para ocultar todos los DataGridView y Labels en el formulario
         private void OcultarDataGrids()
         {
             foreach (var dgv in this.Controls.OfType<DataGridView>())
@@ -53,12 +61,15 @@ namespace SQL_AccederBaseDatos
                 lbl.Visible = false;
             }
         }
+
+        // Evento para el botón de crear tabla
         private void btCrearTabla_Click(object sender, EventArgs e)
         {
             if (chkSQLServer.Checked)
             {
                 try
                 {
+                    // Validación de los campos de entrada
                     if (txtNomTabla.Text == "Ejemplo: Alumnos" || txtC1.Text == "Ejemplo: NoControl varchar(10)" || txtC2.Text == "Ejemplo: nombre varchar(50)" || txtC3.Text == "Ejemplo: carrera int")
                     {
                         MessageBox.Show("Ingrese el nombre de la tabla y los campos.");
@@ -75,6 +86,7 @@ namespace SQL_AccederBaseDatos
                     else
                     {
                         OcultarDataGrids();
+                        // Ejecución del comando para crear la tabla
                         var (ds, comando) = cmd.EjecutarComandos("CREATE TABLE " + $"{txtNomTabla.Text} ({txtC1.Text}, {txtC2.Text}, {txtC3.Text})", $"{txtNomTabla.Text}");
                         var (lbl, dgv) = MostrarTabla.CrearYMostrarDataGridView(ds, txtNomTabla.Text);
                         this.Controls.Add(lbl);
@@ -95,6 +107,7 @@ namespace SQL_AccederBaseDatos
             {
                 try
                 {
+                    // Validación de los campos de entrada
                     if (txtNomTabla.Text == "Ejemplo: Alumnos" || txtC1.Text == "Ejemplo: NoControl varchar(10)" || txtC2.Text == "Ejemplo: nombre varchar(50)" || txtC3.Text == "Ejemplo: carrera int")
                     {
                         MessageBox.Show("Ingrese el nombre de la tabla y los campos.");
@@ -111,6 +124,7 @@ namespace SQL_AccederBaseDatos
                     else
                     {
                         OcultarDataGrids();
+                        // Ejecución del comando para crear la tabla
                         var (MySQLds, MySLcomando) = MySqlCmd.EjecutarComandos("CREATE TABLE " + $"{txtNomTabla.Text} ({txtC1.Text}, {txtC2.Text}, {txtC3.Text})", $"{txtNomTabla.Text}");
                         var (lbl, dgv) = MostrarTabla.CrearYMostrarDataGridView(MySQLds, $"MySQL {txtNomTabla.Text}");
                         this.Controls.Add(lbl);
@@ -129,6 +143,7 @@ namespace SQL_AccederBaseDatos
             }
         }
 
+        // Evento para el botón de insertar datos
         private void btnInsertar_Click(object sender, EventArgs e)
         {
             if (chkSQLServer.Checked)
@@ -136,7 +151,7 @@ namespace SQL_AccederBaseDatos
                 try
                 {
                     OcultarDataGrids();
-                    
+                    // Ejecución del comando para insertar datos
                     var (ds, comando) = cmd.EjecutarComandos("INSERT INTO " +
                                 $"{txtNomTabla.Text} ({txtC1.Text}, {txtC2.Text}, {txtC3.Text}) " +
                                 "VALUES ('" + txtCampo1.Text +
@@ -161,7 +176,7 @@ namespace SQL_AccederBaseDatos
                 try
                 {
                     OcultarDataGrids();
-                    
+                    // Ejecución del comando para insertar datos
                     var (MySQLds, MySLcomando) = MySqlCmd.EjecutarComandos("INSERT INTO " +
                                 $"{txtNomTabla.Text} ({txtC1.Text}, {txtC2.Text}, {txtC3.Text}) " +
                                 "VALUES ('" + txtCampo1.Text +
@@ -183,6 +198,7 @@ namespace SQL_AccederBaseDatos
             }
         }
 
+        // Evento para el botón de actualizar datos
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             if (chkSQLServer.Checked)
@@ -195,6 +211,7 @@ namespace SQL_AccederBaseDatos
                         MessageBox.Show("Ingrese el NoControl del alumno a eliminar.");
                         return;
                     }
+                    // Ejecución del comando para actualizar datos
                     var (ds, comando) = cmd.EjecutarComandos($"UPDATE {txtNomTabla.Text} SET " +
                           $"{txtC2.Text} = '{txtCampo2.Text}', " +
                           $"{txtC3.Text} = {txtCampo3.Text} " +
@@ -223,6 +240,7 @@ namespace SQL_AccederBaseDatos
                         MessageBox.Show("Ingrese el NoControl del alumno a eliminar.");
                         return;
                     }
+                    // Ejecución del comando para actualizar datos
                     var (MySQLds, MySLcomando) = MySqlCmd.EjecutarComandos($"UPDATE {txtNomTabla.Text} SET " +
                           $"{txtC2.Text} = '{txtCampo2.Text}', " +
                           $"{txtC3.Text} = {txtCampo3.Text} " +
@@ -243,6 +261,7 @@ namespace SQL_AccederBaseDatos
             }
         }
 
+        // Evento para el botón de borrar datos
         private void btnBorrar_Click(object sender, EventArgs e)
         {
             if (chkSQLServer.Checked)
@@ -255,6 +274,7 @@ namespace SQL_AccederBaseDatos
                         MessageBox.Show("Ingrese el NoControl del alumno a eliminar.");
                         return;
                     }
+                    // Ejecución del comando para borrar datos
                     var (ds, comando) = cmd.EjecutarComandos($"DELETE FROM {txtNomTabla.Text} WHERE {txtC1.Text} = '{txtCampo1.Text}'", $"{txtNomTabla.Text}");
                     var (lbl, dgv) = MostrarTabla.CrearYMostrarDataGridView(ds, txtNomTabla.Text);
                     this.Controls.Add(lbl);
@@ -280,6 +300,7 @@ namespace SQL_AccederBaseDatos
                         MessageBox.Show("Ingrese el NoControl del alumno a eliminar.");
                         return;
                     }
+                    // Ejecución del comando para borrar datos
                     var (MySQLds, MySLcomando) = MySqlCmd.EjecutarComandos($"DELETE FROM {txtNomTabla.Text} WHERE {txtC1.Text} = '{txtCampo1.Text}'", $"{txtNomTabla.Text}");
                     var (lbl, dgv) = MostrarTabla.CrearYMostrarDataGridView(MySQLds, $"MySQL {txtNomTabla.Text}");
                     this.Controls.Add(lbl);
@@ -297,6 +318,7 @@ namespace SQL_AccederBaseDatos
             }
         }
 
+        // Evento para el botón de buscar datos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             if (chkSQLServer.Checked)
@@ -310,6 +332,7 @@ namespace SQL_AccederBaseDatos
                         return;
                     }
 
+                    // Ejecución del comando para buscar datos
                     var (ds, comando) = cmd.EjecutarComandos($"SELECT * FROM {txtNomTabla.Text} WHERE {txtC1.Text} = '{txtCampo1.Text}'", $"{txtNomTabla.Text}");
                     SqlDataReader reader = comando.ExecuteReader();
 
@@ -346,6 +369,7 @@ namespace SQL_AccederBaseDatos
                         MessageBox.Show("Ingrese el NoControl del alumno a eliminar.");
                         return;
                     }
+                    // Ejecución del comando para buscar datos
                     var (MySQLds, MySQLcomando) = MySqlCmd.EjecutarComandos($"SELECT * FROM {txtNomTabla.Text} WHERE {txtC1.Text} = '{txtCampo1.Text}'", $"{txtNomTabla.Text}");
                     MySqlDataReader reader = MySQLcomando.ExecuteReader();
 
@@ -373,11 +397,14 @@ namespace SQL_AccederBaseDatos
                 }
             }
         }
+
+        // Evento para el botón de refrescar datos
         private void btnRefrescar_Click(object sender, EventArgs e)
         {
             if (chkSQLServer.Checked)
             {
                 OcultarDataGrids();
+                // Llenado del DataGridView con los datos de la tabla
                 DataSet ds = Llenar.llenarGrids($"{txtNomTabla.Text}");
                 var (lbl, dgv) = MostrarTabla.CrearYMostrarDataGridView(ds, txtNomTabla.Text);
                 this.Controls.Add(lbl);
@@ -387,6 +414,7 @@ namespace SQL_AccederBaseDatos
             else if (chkMySQL.Checked)
             {
                 OcultarDataGrids();
+                // Llenado del DataGridView con los datos de la tabla
                 DataSet ds = MySQLLlenar.llenarGrids($"{txtNomTabla.Text}");
                 var (lbl, dgv) = MostrarTabla.CrearYMostrarDataGridView(ds, $"MySQL {txtNomTabla.Text}");
                 this.Controls.Add(lbl);
@@ -395,6 +423,7 @@ namespace SQL_AccederBaseDatos
             }
         }
 
+        // Evento para mostrar la ventana de ayuda
         private void ayudaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FromAyuda Ayuda = new FromAyuda();

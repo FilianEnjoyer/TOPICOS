@@ -11,10 +11,10 @@ namespace SQL_AccederBaseDatos.Clases
 {
     internal class MostrarTabla
     {
+        // Método para crear y mostrar un DataGridView con los datos de un DataSet
         public (Label, DataGridView) CrearYMostrarDataGridView(DataSet ds, string nombreTabla)
         {
-            
-
+            // Creación de un nuevo DataGridView
             DataGridView dgv = new DataGridView
             {
                 DataSource = ds.Tables[0],
@@ -25,6 +25,7 @@ namespace SQL_AccederBaseDatos.Clases
                 Visible = true
             };
 
+            // Creación de un nuevo Label para mostrar el nombre de la tabla
             Label lbl = new Label
             {
                 Text = "Tabla: " + nombreTabla,
@@ -32,8 +33,9 @@ namespace SQL_AccederBaseDatos.Clases
                 AutoSize = true,
                 Visible = true
             };
-            return (lbl, dgv);
 
+            // Retorno del Label y el DataGridView creados
+            return (lbl, dgv);
         }
     }
 }
