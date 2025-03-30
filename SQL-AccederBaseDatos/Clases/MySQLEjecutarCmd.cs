@@ -18,7 +18,7 @@ namespace SQL_AccederBaseDatos
         private string UsuarioId = "root";
         private string Password = "";
         MySQLLenarGrid Llenar = new MySQLLenarGrid();
-        public (DataSet, MySqlCommand) EjecutarComandos(string ConsultaSQL)
+        public (DataSet, MySqlCommand) EjecutarComandos(string ConsultaSQL, string NomTabla)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace SQL_AccederBaseDatos
                 cmd.ExecuteNonQuery();
 
 
-                return (Llenar.llenarGrids(), cmd);
+                return (Llenar.llenarGrids(NomTabla), cmd);
 
             }
             catch (MySqlException Ex)
@@ -46,7 +46,7 @@ namespace SQL_AccederBaseDatos
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Error en el sistema");
+                MessageBox.Show("Error en el sistema: " + Ex.Message);
                 return (null, null);
             }
         }

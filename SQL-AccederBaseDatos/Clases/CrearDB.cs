@@ -10,14 +10,13 @@ using System.Windows.Forms;
 
 namespace SQL_AccederBaseDatos
 {
-    internal class EjecutarCmd
+    internal class CrearDB
     {
-        private string Servidor = "LAP-ALEX\\SQLEXPRESS";
-        private string Basedatos = "ESCOLAR";
+        private string Servidor = "MAINPC\\SQLEXPRESS";
+        private string Basedatos = "master";
         private string UsuarioId = "sa";
         private string Password = "FilianEnjoyer";
-        LlenarGrid Llenar = new LlenarGrid();
-        public (DataSet, SqlCommand) EjecutarComandos(string ConsultaSQL)
+        public void CrearBase(string DB)
         {
             try
             {
@@ -29,26 +28,24 @@ namespace SQL_AccederBaseDatos
                 
                 SqlConnection conn = new SqlConnection(strConn);
                 conn.Open();
+
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
-                cmd.CommandText = ConsultaSQL;
+                cmd.CommandText = $"CREATE DATABASE {DB}";
                 cmd.ExecuteNonQuery();
 
+                
 
-                return (Llenar.llenarGrids(), cmd);
 
             }
             catch (SqlException Ex)
             {
                 MessageBox.Show(Ex.Message);
-                return (null, null);
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Error en el sistema");
-                return (null, null);
+                MessageBox.Show("Error en el sistema: " + Ex.Message);
             }
         }
-        
     }
 }

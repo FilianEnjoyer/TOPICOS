@@ -41,7 +41,7 @@ namespace SQL_AccederBaseDatos
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Error en el sistema");
+                MessageBox.Show("Error en el sistema: " + Ex.Message);
             }
         }
     }

@@ -11,11 +11,11 @@ namespace SQL_AccederBaseDatos
 {
     internal class LlenarGrid
     {
-        private string Servidor = "LAP-ALEX\\SQLEXPRESS";
+        private string Servidor = "MAINPC\\SQLEXPRESS";
         private string Basedatos = "ESCOLAR";
         private string UsuarioId = "sa";
         private string Password = "FilianEnjoyer";
-        public DataSet llenarGrids()
+        public DataSet llenarGrids(string NomTabla)
         {
             DataSet ds = new DataSet();
             try
@@ -29,10 +29,10 @@ namespace SQL_AccederBaseDatos
                 {
                     conn.Open();
 
-                    string sqlQuery = "select * from Alumnos";
+                    string sqlQuery = $"select * from {NomTabla}";
                     SqlDataAdapter adp = new SqlDataAdapter(sqlQuery, conn);
 
-                    adp.Fill(ds, "Alumnos");
+                    adp.Fill(ds, $"{NomTabla}");
                 }
             }
             catch (SqlException Ex)
@@ -41,7 +41,7 @@ namespace SQL_AccederBaseDatos
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Error en el sistema");
+                MessageBox.Show("Error en el sistema: " + Ex.Message);
             }
             return ds;
         }

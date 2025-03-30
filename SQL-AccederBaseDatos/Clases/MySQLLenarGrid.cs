@@ -17,7 +17,7 @@ namespace SQL_AccederBaseDatos
         private string Basedatos = "ESCOLAR";
         private string UsuarioId = "root";
         private string Password = "";
-        public DataSet llenarGrids()
+        public DataSet llenarGrids(string NomTabla)
         {
             DataSet ds = new DataSet();
             try
@@ -31,10 +31,10 @@ namespace SQL_AccederBaseDatos
                 {
                     conn.Open();
 
-                    string sqlQuery = "select * from Alumnos";
+                    string sqlQuery = $"select * from {NomTabla}";
                     MySqlDataAdapter adp = new MySqlDataAdapter(sqlQuery, conn);
 
-                    adp.Fill(ds, "Alumnos");
+                    adp.Fill(ds, $"{NomTabla}");
                 }
             }
             catch (MySqlException Ex)
@@ -43,7 +43,7 @@ namespace SQL_AccederBaseDatos
             }
             catch (Exception Ex)
             {
-                MessageBox.Show("Error en el sistema");
+                MessageBox.Show("Error en el sistema: " + Ex.Message);
             }
             return ds;
         }

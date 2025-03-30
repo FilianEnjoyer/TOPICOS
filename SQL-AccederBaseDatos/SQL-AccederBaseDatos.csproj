@@ -36,8 +36,8 @@
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>..\packages\BouncyCastle.Cryptography.2.5.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Protobuf, Version=3.30.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
-      <HintPath>..\packages\Google.Protobuf.3.30.1\lib\net45\Google.Protobuf.dll</HintPath>
+    <Reference Include="Google.Protobuf, Version=3.30.2.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.30.2\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
     <Reference Include="K4os.Compression.LZ4, Version=1.3.8.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Compression.LZ4.1.3.8\lib\net462\K4os.Compression.LZ4.dll</HintPath>
@@ -98,22 +98,86 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrearDB.cs" />
-    <Compile Include="EjecutarCmd.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Clases\CrearDB.cs" />
+    <Compile Include="Clases\EjecutarCmd.cs" />
+    <Compile Include="Clases\MostrarTabla.cs" />
+    <Compile Include="ImagenesEjemplo\FromAyuda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ImagenesEjemplo\FromAyuda.Designer.cs">
+      <DependentUpon>FromAyuda.cs</DependentUpon>
     </Compile>
-    <Compile Include="LlenarGrid.cs" />
-    <Compile Include="MySQLCrearDB.cs" />
-    <Compile Include="MySQLEjecutarCmd.cs" />
-    <Compile Include="MySQLLenarGrid.cs" />
+    <Compile Include="ImagenesEjemplo\ImagenActualizar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImagenesEjemplo\ImagenActualizar.Designer.cs">
+      <DependentUpon>ImagenActualizar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImagenesEjemplo\ImagenBorrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImagenesEjemplo\ImagenBorrar.Designer.cs">
+      <DependentUpon>ImagenBorrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImagenesEjemplo\ImagenBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImagenesEjemplo\ImagenBuscar.Designer.cs">
+      <DependentUpon>ImagenBuscar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImagenesEjemplo\ImagenCrearTabla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImagenesEjemplo\ImagenCrearTabla.Designer.cs">
+      <DependentUpon>ImagenCrearTabla.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImagenesEjemplo\ImagenInsetar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImagenesEjemplo\ImagenInsetar.Designer.cs">
+      <DependentUpon>ImagenInsetar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImagenesEjemplo\ImagenRefrescar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImagenesEjemplo\ImagenRefrescar.Designer.cs">
+      <DependentUpon>ImagenRefrescar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\LlenarGrid.cs" />
+    <Compile Include="Clases\MySQLCrearDB.cs" />
+    <Compile Include="Clases\MySQLEjecutarCmd.cs" />
+    <Compile Include="Clases\MySQLLenarGrid.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="ImagenesEjemplo\FromAyuda.resx">
+      <DependentUpon>FromAyuda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagenesEjemplo\ImagenActualizar.resx">
+      <DependentUpon>ImagenActualizar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagenesEjemplo\ImagenBorrar.resx">
+      <DependentUpon>ImagenBorrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagenesEjemplo\ImagenBuscar.resx">
+      <DependentUpon>ImagenBuscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagenesEjemplo\ImagenCrearTabla.resx">
+      <DependentUpon>ImagenCrearTabla.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagenesEjemplo\ImagenInsetar.resx">
+      <DependentUpon>ImagenInsetar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImagenesEjemplo\ImagenRefrescar.resx">
+      <DependentUpon>ImagenRefrescar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -123,6 +187,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -140,6 +205,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ILLink\ILLink.Descriptors.LibraryBuild.xml" />
+    <None Include="ImagenesEjemplo\Refrescar.png" />
+    <None Include="ImagenesEjemplo\Buscar.png" />
+    <None Include="ImagenesEjemplo\Borrar.png" />
+    <None Include="ImagenesEjemplo\Actualizar.png" />
+    <None Include="ImagenesEjemplo\Insetar.png" />
+    <None Include="ImagenesEjemplo\Crear Tabla.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
